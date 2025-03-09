@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdTech Competitive Analysis - Radar Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Load Chart.js -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 40px;
+        }
+        canvas {
+            max-width: 600px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>EdTech Competitive Analysis - Radar Chart</h1>
+    <canvas id="radarChart"></canvas> <!-- Radar Chart Canvas -->
+
+    <script>
+        // Get canvas for the radar chart
+        const ctx = document.getElementById("radarChart").getContext("2d");
+
+        // Data for competitive analysis
+        const data = {
+            labels: ["AI & Personalization", "Marketing", "Flexibility", "Optimization", "Accuracy", "Gamification", "Engagement"],
+            datasets: [
+                {
+                    label: "Duolingo",
+                    data: [90, 85, 88, 80, 87, 95, 92],
+                    fill: true,
+                    backgroundColor: "rgba(54, 162, 235, 0.2)",
+                    borderColor: "rgba(54, 162, 235, 1)",
+                    pointBackgroundColor: "rgba(54, 162, 235, 1)"
+                },
+                {
+                    label: "Babbel",
+                    data: [80, 88, 85, 75, 82, 78, 85],
+                    fill: true,
+                    backgroundColor: "rgba(255, 99, 132, 0.2)",
+                    borderColor: "rgba(255, 99, 132, 1)",
+                    pointBackgroundColor: "rgba(255, 99, 132, 1)"
+                },
+                {
+                    label: "Rosetta Stone",
+                    data: [70, 75, 80, 78, 90, 70, 75],
+                    fill: true,
+                    backgroundColor: "rgba(255, 206, 86, 0.2)",
+                    borderColor: "rgba(255, 206, 86, 1)",
+                    pointBackgroundColor: "rgba(255, 206, 86, 1)"
+                },
+                {
+                    label: "Memrise",
+                    data: [78, 80, 85, 82, 80, 89, 87],
+                    fill: true,
+                    backgroundColor: "rgba(75, 192, 192, 0.2)",
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    pointBackgroundColor: "rgba(75, 192, 192, 1)"
+                }
+            ]
+        };
+
+        // Create the radar chart
+        new Chart(ctx, {
+            type: "radar",
+            data: data,
+            options: {
+                responsive: true,
+                scales: {
+                    r: {
+                        suggestedMin: 50,
+                        suggestedMax: 100
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
